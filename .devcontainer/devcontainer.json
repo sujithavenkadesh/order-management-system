@@ -1,9 +1,6 @@
 {
   "name": "oms-java",
-  "image": "mcr.microsoft.com/devcontainers/java:21",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
