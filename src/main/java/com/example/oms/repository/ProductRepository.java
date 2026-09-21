@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -25,4 +26,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
                          @Param("minPrice") BigDecimal minPrice,
                          @Param("maxPrice") BigDecimal maxPrice,
                          Pageable pageable);
+
+    @Modifying
+    @Query("UPDATE Product p SET p.stockQty = p.stockQty - :qty "
+            + "WHERE p.id = :id AND p.stockQty >= :qty")
+    int reduceStock(@Param("id") Long id, @Param("qty") int qty);
+
+    @Modifying
+    @Query("UPDATE Product p SET p.stockQty = p.stockQty + :qty WHERE p.id = :id")
+    int increaseStock(@Param("id") Long id, @Param("qty") int qty);
 }

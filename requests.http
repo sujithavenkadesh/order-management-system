@@ -131,3 +131,162 @@ DELETE {{base}}/api/users/1/cart
 
 ### 27. Cart for unknown user (404)
 GET {{base}}/api/users/999/cart
+
+### 28. Register user 1
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "User One", "email": "user1@example.com", "password": "Pass@1234" }
+
+### 29. Register user 2
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "User Two", "email": "user2@example.com", "password": "Pass@1234" }
+
+### 30. User 1: add product 1 qty 2
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 1, "quantity": 2 }
+
+### 31. User 1: add product 2 qty 1
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 2, "quantity": 1 }
+
+### 32. User 1: place order (201)
+POST {{base}}/api/users/1/orders
+
+### 33. User 1: cart empty aagirukkanum
+GET {{base}}/api/users/1/cart
+
+### 34. Product 1 stock kuraiyanum
+GET {{base}}/api/products/1
+
+### 35. Empty cart la order (400)
+POST {{base}}/api/users/1/orders
+
+### 36. Payment fail simulate
+POST {{base}}/api/orders/1/pay
+Content-Type: application/json
+
+{ "simulateFailure": true }
+
+### 37. Payment retry, success
+POST {{base}}/api/orders/1/pay
+Content-Type: application/json
+
+{ "simulateFailure": false }
+
+### 38. Already paid, thirumba pay (400)
+POST {{base}}/api/orders/1/pay
+Content-Type: application/json
+
+{}
+
+### 39. PAID order cancel (400)
+POST {{base}}/api/orders/1/cancel
+
+### 40. Ship
+PATCH {{base}}/api/orders/1/status
+Content-Type: application/json
+
+{ "status": "SHIPPED" }
+
+### 41. Invalid status change (400)
+PATCH {{base}}/api/orders/1/status
+Content-Type: application/json
+
+{ "status": "PAID" }
+
+### 42. Deliver
+PATCH {{base}}/api/orders/1/status
+Content-Type: application/json
+
+{ "status": "DELIVERED" }
+
+### 43. User 1: add product 3 qty 2
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 3, "quantity": 2 }
+
+### 44. User 1: place order 2
+POST {{base}}/api/users/1/orders
+
+### 45. Cancel order 2
+POST {{base}}/api/orders/2/cancel
+
+### 46. Product 3 stock thirumba 51 aaganum
+GET {{base}}/api/products/3
+
+### 47. User 1 orders (newest first)
+GET {{base}}/api/users/1/orders
+
+### 48. Order not found (404)
+GET {{base}}/api/orders/999
+
+### 49. ROLLBACK TEST: User 2 add product 4 qty 5
+POST {{base}}/api/users/2/cart/items
+Content-Type: application/json
+
+{ "productId": 4, "quantity": 5 }
+
+### 50. User 2 add product 25 qty 75 (full stock)
+POST {{base}}/api/users/2/cart/items
+Content-Type: application/json
+
+{ "productId": 25, "quantity": 75 }
+
+### 51. User 1 add product 25 qty 10
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 25, "quantity": 10 }
+
+### 52. User 1 place order 3 (product 25 stock 65 aagum)
+POST {{base}}/api/users/1/orders
+
+### 53. User 2 place order (400, Insufficient stock)
+POST {{base}}/api/users/2/orders
+
+### 54. Product 4 stock 22 nu irukkanum (rollback proof)
+GET {{base}}/api/products/4
+
+### 55. User 2 cart innum 2 items irukkanum
+GET {{base}}/api/users/2/cart
+
+### 56. Register user 3
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "User Three", "email": "user3@example.com", "password": "Pass@1234" }
+
+### 57. Register user 4
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "User Four", "email": "user4@example.com", "password": "Pass@1234" }
+
+### 58. Limited product, stock 1 (id 26)
+POST {{base}}/api/products
+Content-Type: application/json
+
+{ "name": "Limited Edition Watch", "description": "Only 1 in stock", "price": 4999.00, "stockQty": 1, "categoryId": 1 }
+
+### 59. User 3 add product 26
+POST {{base}}/api/users/3/cart/items
+Content-Type: application/json
+
+{ "productId": 26, "quantity": 1 }
+
+### 60. User 4 add product 26
+POST {{base}}/api/users/4/cart/items
+Content-Type: application/json
+
+{ "productId": 26, "quantity": 1 }
+
+### 61. Concurrency test ku appuram, stock 0 (negative illa)
+GET {{base}}/api/products/26
