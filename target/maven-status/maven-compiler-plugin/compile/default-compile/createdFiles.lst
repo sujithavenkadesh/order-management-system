@@ -48,6 +48,7 @@ com/example/oms/entity/Cart.class
 com/example/oms/entity/OrderStatus.class
 com/example/oms/dto/OrderResponse.class
 com/example/oms/repository/CategoryRepository.class
+com/example/oms/config/OpenApiConfig.class
 com/example/oms/dto/CategoryResponse.class
 com/example/oms/controller/OrderController.class
 com/example/oms/entity/Role.class

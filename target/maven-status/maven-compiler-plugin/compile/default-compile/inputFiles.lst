@@ -1,6 +1,7 @@
 /workspaces/order-management-system/src/main/java/com/example/oms/OmsApplication.java
 /workspaces/order-management-system/src/main/java/com/example/oms/config/AppConfig.java
 /workspaces/order-management-system/src/main/java/com/example/oms/config/DataLoader.java
+/workspaces/order-management-system/src/main/java/com/example/oms/config/OpenApiConfig.java
 /workspaces/order-management-system/src/main/java/com/example/oms/config/ReportDataLoader.java
 /workspaces/order-management-system/src/main/java/com/example/oms/controller/CartController.java
 /workspaces/order-management-system/src/main/java/com/example/oms/controller/CategoryController.java
