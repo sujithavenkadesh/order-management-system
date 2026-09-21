@@ -4,10 +4,13 @@ com/example/oms/entity/Order.class
 com/example/oms/service/ProductService.class
 com/example/oms/controller/CategoryController.class
 com/example/oms/entity/Product.class
+com/example/oms/dto/PageResponse.class
+com/example/oms/config/DataLoader.class
 com/example/oms/dto/ProductRequest.class
 com/example/oms/dto/ProductResponse.class
 com/example/oms/entity/PaymentStatus.class
 com/example/oms/entity/OrderItem.class
+com/example/oms/exception/BadRequestException.class
 com/example/oms/exception/GlobalExceptionHandler.class
 com/example/oms/exception/DuplicateResourceException.class
 com/example/oms/controller/ProductController.class

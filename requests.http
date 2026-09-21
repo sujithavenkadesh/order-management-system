@@ -56,3 +56,18 @@ Content-Type: application/json
 
 ### 10. Delete product
 DELETE {{base}}/api/products/1
+
+### 11. Page 1, 5 items, price high to low
+GET {{base}}/api/products?page=0&size=5&sort=price,desc
+
+### 12. Last page
+GET {{base}}/api/products?page=4&size=5&sort=id,asc
+
+### 13. Keyword search
+GET {{base}}/api/products?keyword=mouse
+
+### 14. Category + price range
+GET {{base}}/api/products?categoryId=2&minPrice=300&maxPrice=600&sort=price,asc
+
+### 15. Invalid sort field (400 varanum)
+GET {{base}}/api/products?sort=abc

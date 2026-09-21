@@ -1,14 +1,17 @@
 package com.example.oms.controller;
 
+import com.example.oms.dto.PageResponse;
 import com.example.oms.dto.ProductRequest;
 import com.example.oms.dto.ProductResponse;
 import com.example.oms.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/products")
@@ -24,8 +27,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductResponse> getAll() {
-        return productService.getAll();
+    public PageResponse<ProductResponse> search(
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) BigDecimal minPrice,
+            @RequestParam(required = false) BigDecimal maxPrice,
+            @PageableDefault(size = 10, sort = "id") Pageable pageable) {
+        return productService.search(keyword, categoryId, minPrice, maxPrice, pageable);
     }
 
     @GetMapping("/{id}")

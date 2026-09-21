@@ -1,8 +1,10 @@
 /workspaces/order-management-system/src/main/java/com/example/oms/OmsApplication.java
+/workspaces/order-management-system/src/main/java/com/example/oms/config/DataLoader.java
 /workspaces/order-management-system/src/main/java/com/example/oms/controller/CategoryController.java
 /workspaces/order-management-system/src/main/java/com/example/oms/controller/ProductController.java
 /workspaces/order-management-system/src/main/java/com/example/oms/dto/CategoryRequest.java
 /workspaces/order-management-system/src/main/java/com/example/oms/dto/CategoryResponse.java
+/workspaces/order-management-system/src/main/java/com/example/oms/dto/PageResponse.java
 /workspaces/order-management-system/src/main/java/com/example/oms/dto/ProductRequest.java
 /workspaces/order-management-system/src/main/java/com/example/oms/dto/ProductResponse.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/Cart.java
@@ -16,6 +18,7 @@
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/Product.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/Role.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/User.java
+/workspaces/order-management-system/src/main/java/com/example/oms/exception/BadRequestException.java
 /workspaces/order-management-system/src/main/java/com/example/oms/exception/DuplicateResourceException.java
 /workspaces/order-management-system/src/main/java/com/example/oms/exception/ErrorResponse.java
 /workspaces/order-management-system/src/main/java/com/example/oms/exception/GlobalExceptionHandler.java

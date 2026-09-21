@@ -1,21 +1,28 @@
 package com.example.oms.service;
 
+import com.example.oms.dto.PageResponse;
 import com.example.oms.dto.ProductRequest;
 import com.example.oms.dto.ProductResponse;
 import com.example.oms.entity.Category;
 import com.example.oms.entity.Product;
+import com.example.oms.exception.BadRequestException;
 import com.example.oms.exception.ResourceNotFoundException;
 import com.example.oms.repository.CategoryRepository;
 import com.example.oms.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
+
+    private static final Set<String> SORTABLE_FIELDS = Set.of("id", "name", "price", "stockQty");
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
@@ -28,8 +35,20 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<ProductResponse> getAll() {
-        return productRepository.findAll().stream().map(this::toResponse).toList();
+    public PageResponse<ProductResponse> search(String keyword, Long categoryId,
+                                                BigDecimal minPrice, BigDecimal maxPrice,
+                                                Pageable pageable) {
+        pageable.getSort().forEach(order -> {
+            if (!SORTABLE_FIELDS.contains(order.getProperty())) {
+                throw new BadRequestException("Cannot sort by: " + order.getProperty());
+            }
+        });
+
+        String kw = (keyword == null || keyword.isBlank()) ? null : keyword.trim();
+        Page<ProductResponse> page = productRepository
+                .search(kw, categoryId, minPrice, maxPrice, pageable)
+                .map(this::toResponse);
+        return PageResponse.from(page);
     }
 
     @Transactional(readOnly = true)
