@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Set;
+import com.example.oms.repository.ProductSpecifications;
 
 @Service
 @RequiredArgsConstructor
@@ -45,8 +46,8 @@ public class ProductService {
         });
 
         String kw = (keyword == null || keyword.isBlank()) ? null : keyword.trim();
-        Page<ProductResponse> page = productRepository
-                .search(kw, categoryId, minPrice, maxPrice, pageable)
+                Page<ProductResponse> page = productRepository
+                .findAll(ProductSpecifications.filter(kw, categoryId, minPrice, maxPrice), pageable)
                 .map(this::toResponse);
         return PageResponse.from(page);
     }
