@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.oms.service.OrderServiceTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.648 s -- in com.example.oms.service.OrderServiceTest
