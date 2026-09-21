@@ -1,5 +1,12 @@
 /workspaces/order-management-system/src/main/java/com/example/oms/OmsApplication.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/Cart.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/CartItem.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/Category.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/Order.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/OrderItem.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/OrderStatus.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/Payment.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/PaymentStatus.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/Product.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/Role.java
 /workspaces/order-management-system/src/main/java/com/example/oms/entity/User.java

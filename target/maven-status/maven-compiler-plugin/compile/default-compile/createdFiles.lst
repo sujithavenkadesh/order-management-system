@@ -1,5 +1,12 @@
-com/example/oms/OmsApplication.class
+com/example/oms/entity/CartItem.class
+com/example/oms/entity/Payment.class
+com/example/oms/entity/Cart.class
+com/example/oms/entity/Order.class
+com/example/oms/entity/OrderStatus.class
 com/example/oms/entity/Product.class
 com/example/oms/entity/Role.class
+com/example/oms/entity/PaymentStatus.class
+com/example/oms/entity/OrderItem.class
+com/example/oms/OmsApplication.class
 com/example/oms/entity/User.class
 com/example/oms/entity/Category.class
