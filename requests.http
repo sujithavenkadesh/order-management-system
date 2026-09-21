@@ -71,3 +71,63 @@ GET {{base}}/api/products?categoryId=2&minPrice=300&maxPrice=600&sort=price,asc
 
 ### 15. Invalid sort field (400 varanum)
 GET {{base}}/api/products?sort=abc
+
+### 16. Register user (201, response la password varaadhu)
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "Test User", "email": "test@example.com", "password": "Pass@1234" }
+
+### 17. Duplicate email (409)
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "Test User", "email": "TEST@example.com", "password": "Pass@1234" }
+
+### 18. Register validation (400)
+POST {{base}}/api/users
+Content-Type: application/json
+
+{ "name": "", "email": "abc", "password": "123" }
+
+### 19. Add product 1, qty 2
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 1, "quantity": 2 }
+
+### 20. Add product 1 again, qty 1 (same line la qty 3 aaganum)
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 1, "quantity": 1 }
+
+### 21. Add product 2, qty 1
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 2, "quantity": 1 }
+
+### 22. View cart
+GET {{base}}/api/users/1/cart
+
+### 23. Update item 1 quantity to 5
+PUT {{base}}/api/users/1/cart/items/1
+Content-Type: application/json
+
+{ "quantity": 5 }
+
+### 24. Stock exceed (400)
+POST {{base}}/api/users/1/cart/items
+Content-Type: application/json
+
+{ "productId": 1, "quantity": 1000 }
+
+### 25. Remove item 2
+DELETE {{base}}/api/users/1/cart/items/2
+
+### 26. Clear cart (204)
+DELETE {{base}}/api/users/1/cart
+
+### 27. Cart for unknown user (404)
+GET {{base}}/api/users/999/cart
