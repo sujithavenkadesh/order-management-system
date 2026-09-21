@@ -1,0 +1,58 @@
+@base = http://localhost:8080
+
+### 1. Create category
+POST {{base}}/api/categories
+Content-Type: application/json
+
+{ "name": "Electronics" }
+
+### 2. List categories
+GET {{base}}/api/categories
+
+### 3. Create product
+POST {{base}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "description": "2.4GHz, USB receiver",
+  "price": 599.00,
+  "stockQty": 50,
+  "categoryId": 1
+}
+
+### 4. List products
+GET {{base}}/api/products
+
+### 5. Get one product
+GET {{base}}/api/products/1
+
+### 6. Update product
+PUT {{base}}/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse Pro",
+  "description": "Bluetooth + USB",
+  "price": 799.00,
+  "stockQty": 40,
+  "categoryId": 1
+}
+
+### 7. Validation test (400 varanum)
+POST {{base}}/api/products
+Content-Type: application/json
+
+{ "name": "", "price": -5, "stockQty": -1 }
+
+### 8. Not found test (404 varanum)
+GET {{base}}/api/products/999
+
+### 9. Duplicate test (409 varanum, request 1 thirumba run pannunga)
+POST {{base}}/api/categories
+Content-Type: application/json
+
+{ "name": "Electronics" }
+
+### 10. Delete product
+DELETE {{base}}/api/products/1
