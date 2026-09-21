@@ -1,1 +1,5 @@
 /workspaces/order-management-system/src/main/java/com/example/oms/OmsApplication.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/Category.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/Product.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/Role.java
+/workspaces/order-management-system/src/main/java/com/example/oms/entity/User.java
