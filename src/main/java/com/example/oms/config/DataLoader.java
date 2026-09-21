@@ -9,8 +9,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import org.springframework.core.annotation.Order;
 
 @Component
+@Order(1)
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
 

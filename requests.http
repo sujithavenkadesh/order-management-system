@@ -290,3 +290,30 @@ Content-Type: application/json
 
 ### 61. Concurrency test ku appuram, stock 0 (negative illa)
 GET {{base}}/api/products/26
+
+### 62. Top 5 products (default)
+GET {{base}}/api/reports/top-products
+
+### 63. Top 3 products
+GET {{base}}/api/reports/top-products?limit=3
+
+### 64. Invalid limit (400)
+GET {{base}}/api/reports/top-products?limit=0
+
+### 65. Monthly revenue (current year)
+GET {{base}}/api/reports/monthly-revenue
+
+### 66. Monthly revenue 2025 (empty list)
+GET {{base}}/api/reports/monthly-revenue?year=2025
+
+### 67. Customer spend
+GET {{base}}/api/reports/customer-spend
+
+### 68. Customer spend, minimum 10000 (HAVING)
+GET {{base}}/api/reports/customer-spend?minSpend=10000
+
+### 69. Category sales
+GET {{base}}/api/reports/category-sales
+
+### 70. Products never ordered
+GET {{base}}/api/reports/unsold-products

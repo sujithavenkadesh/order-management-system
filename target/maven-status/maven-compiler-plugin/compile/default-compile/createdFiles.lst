@@ -2,17 +2,23 @@ com/example/oms/entity/Payment.class
 com/example/oms/service/OrderService.class
 com/example/oms/service/CategoryService.class
 com/example/oms/repository/OrderRepository.class
+com/example/oms/controller/ReportController.class
 com/example/oms/service/ProductService.class
 com/example/oms/dto/PageResponse.class
 com/example/oms/dto/PaymentResponse.class
 com/example/oms/dto/OrderItemResponse.class
+com/example/oms/dto/CategorySalesResponse.class
+com/example/oms/dto/MonthlyRevenueResponse.class
 com/example/oms/entity/OrderItem.class
 com/example/oms/dto/AddCartItemRequest.class
 com/example/oms/exception/GlobalExceptionHandler.class
+com/example/oms/dto/UnsoldProductResponse.class
 com/example/oms/exception/DuplicateResourceException.class
 com/example/oms/controller/ProductController.class
+com/example/oms/dto/TopProductResponse.class
 com/example/oms/exception/ResourceNotFoundException.class
 com/example/oms/dto/UpdateCartItemRequest.class
+com/example/oms/config/ReportDataLoader.class
 com/example/oms/dto/PaymentRequest.class
 com/example/oms/dto/CartItemResponse.class
 com/example/oms/dto/CategoryRequest.class
@@ -21,6 +27,7 @@ com/example/oms/dto/UserResponse.class
 com/example/oms/dto/UpdateOrderStatusRequest.class
 com/example/oms/controller/UserController.class
 com/example/oms/entity/Order.class
+com/example/oms/repository/ReportRepository.class
 com/example/oms/controller/CategoryController.class
 com/example/oms/entity/Product.class
 com/example/oms/repository/CartRepository.class
@@ -35,6 +42,7 @@ com/example/oms/exception/BadRequestException.class
 com/example/oms/entity/User.class
 com/example/oms/entity/CartItem.class
 com/example/oms/repository/ProductRepository.class
+com/example/oms/dto/CustomerSpendResponse.class
 com/example/oms/config/AppConfig.class
 com/example/oms/entity/Cart.class
 com/example/oms/entity/OrderStatus.class
@@ -43,6 +51,7 @@ com/example/oms/repository/CategoryRepository.class
 com/example/oms/dto/CategoryResponse.class
 com/example/oms/controller/OrderController.class
 com/example/oms/entity/Role.class
+com/example/oms/service/ReportService.class
 com/example/oms/service/UserService.class
 com/example/oms/exception/ErrorResponse.class
 com/example/oms/service/CartService.class
